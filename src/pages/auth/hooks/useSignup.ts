@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const useSingup = () => {
   const { mutate, isLoading } = useMutation('singup', SignupApi, {
     onSuccess: (response) => {
-      console.log('Testee REsponse : ', response);
       if (response?.status === 'Done') {
         toast.success('Account created successfully', {
           position: toast.POSITION.TOP_RIGHT,
