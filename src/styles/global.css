@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+}
+.menu-btns {
+  color: #444;
+  font-weight: 500;
+  font-size: large;
+}
+.menu-btns:hover {
+  color: #2af;
+  font-weight: 600;
+}
