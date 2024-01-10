@@ -10,7 +10,11 @@ function Menu() {
 
   return (
     <>
-      <Navbar key={'expand'} expand={false} className="bg-body-tertiary mb-3">
+      <Navbar
+        key={'expand'}
+        expand={false}
+        sticky={'top'}
+        className="bg-body-tertiary mb-3">
         <Container fluid>
           <Navbar.Brand href="#">Wemen</Navbar.Brand>
           <Navbar.Toggle aria-controls={`navbar-menu-expand`} />

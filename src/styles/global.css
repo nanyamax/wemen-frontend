@@ -10,3 +10,21 @@ a {
   color: #2af;
   font-weight: 600;
 }
+.home {
+  background-color: #fff;
+  background-image: url('/src/assets/bg-img.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* width: 100vw; */
+  min-height: 100vh;
+}
+
+.auth-container-col {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+}

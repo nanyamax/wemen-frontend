@@ -1,13 +1,16 @@
-import { Outlet } from 'react-router-dom';
 import Menu from '../components/menu';
 import Footer from '../components/footer';
 import { ToastContainer } from 'react-toastify';
 
-const Layout = () => {
+interface IProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<IProps> = ({ children }) => {
   return (
     <>
       <Menu />
-      <Outlet />
+      {children}
       <Footer />
       <ToastContainer style={{ width: '5rem', height: '3rem' }} />
     </>
