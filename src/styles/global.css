@@ -1,23 +1,60 @@
 a {
   text-decoration: none;
 }
+.help-center-icon {
+  fill: #ddd;
+  color: rgba(33, 170, 255, 0.8);
+}
 .menu-btns {
+  margin-top: 1rem;
   color: #444;
   font-weight: 500;
   font-size: large;
+  border-bottom: 1px solid #eee;
 }
 .menu-btns:hover {
-  color: #2af;
   font-weight: 600;
+  font-size: larger;
 }
-.home {
+.menu-btns svg {
+  margin-top: -0.3rem;
+}
+.app-home {
+  padding: 0;
+  margin: 0;
   background-color: #fff;
   background-image: url('/src/assets/bg-img.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* width: 100vw; */
+  background-origin: content-box;
   min-height: 100vh;
+  height: auto;
+}
+.home-backgroud {
+  background-color: rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+.home {
+  min-height: 100vh;
+  margin-top: -1rem;
+  display: flex;
+}
+.carousel-div {
+  height: 30rem;
+  width: 80%;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  display: flex;
+}
+.carousel-item {
+  margin-top: 4rem;
+}
+.carousel-div div {
+  font-weight: 600;
+  font-size: 3rem;
 }
 
 .auth-container-col {
@@ -27,4 +64,54 @@ a {
   padding: 1.5rem;
   border-radius: 5px;
   margin-top: 2rem;
+}
+
+.logout-button {
+  color: #f00;
+  cursor: pointer;
+}
+
+.period-calculator {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-weight: 600;
+  max-width: 23rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.period-calculator-result {
+  background-color: rgba(0, 0, 0, 0.4);
+  max-width: 23rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.days-select {
+  width: 5rem;
+  margin: auto;
+  cursor: pointer;
+}
+
+.result-title {
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+.result-date {
+  text-align: center;
+}
+.result-date-day {
+  font-size: 4rem;
+}
+.result-date-month {
+  font-size: larger;
+}
+
+/* for mobile screen  */
+@media screen and (max-width: 690px) {
+  .carousel-div div {
+    font-size: 1.8rem;
+  }
 }

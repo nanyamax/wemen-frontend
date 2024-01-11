@@ -1,12 +1,36 @@
+import { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useStore from '../../store/useStore';
+import { toast } from 'react-toastify';
+import { logOutUser } from '../../store/useCheckUser';
+import {
+  Calculator,
+  DoorClosed,
+  DoorOpen,
+  HouseDoor,
+  PersonAdd,
+} from 'react-bootstrap-icons';
 
 function Menu() {
-  const { isLoggedIn } = useStore();
+  const { isLoggedIn, setIsLoggedIn } = useStore();
+  const navigate = useNavigate();
+  const onLogout = () => {
+    logOutUser();
+    setIsLoggedIn(null);
+    toast.info('You have logged out successfully', {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
+  };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn]);
 
   return (
     <>
@@ -30,19 +54,40 @@ function Menu() {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Link to="/">
-                  <span className="menu-btns">Home</span>
+                  <div className="menu-btns">
+                    <HouseDoor /> &nbsp; Home
+                  </div>
                 </Link>
                 {isLoggedIn && (
-                  <Link to="/dashboard">
-                    <span className="menu-btns">Dashboard</span>
-                  </Link>
+                  <>
+                    <Link to="/periodCalculator">
+                      <div className="menu-btns">
+                        <Calculator /> &nbsp; Period Calculator
+                      </div>
+                    </Link>
+                    <div>
+                      <div
+                        className="menu-btns logout-button"
+                        onClick={onLogout}>
+                        <DoorClosed /> &nbsp; Logout
+                      </div>
+                    </div>
+                  </>
                 )}
-                <Link to="/login">
-                  <span className="menu-btns">Login</span>
-                </Link>
-                <Link to="/signup">
-                  <span className="menu-btns">Signup</span>
-                </Link>
+                {!isLoggedIn && (
+                  <>
+                    <Link to="/login">
+                      <div className="menu-btns">
+                        <DoorOpen /> &nbsp; Login
+                      </div>
+                    </Link>
+                    <Link to="/signup">
+                      <div className="menu-btns">
+                        <PersonAdd /> &nbsp; Signup
+                      </div>
+                    </Link>
+                  </>
+                )}
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

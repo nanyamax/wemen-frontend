@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import useStore from '../../../store/useStore';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../../store/useCheckUser';
+import { TApiError } from '../../../common/types';
+import { apiErrorToast } from '../../../common/utils';
 
 const useLogin = () => {
   const { setIsLoggedIn } = useStore();
@@ -12,21 +14,19 @@ const useLogin = () => {
   const { mutate, isLoading } = useMutation('login', LoginApi, {
     onSuccess: (response) => {
       if (response?.email && response?.firstName) {
+        toast.success('You have signed in successfully', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
         loginUser(response as any);
         setIsLoggedIn(response);
-        toast.success('You have signed in successfully', {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-        navigate('/user');
+        navigate('/');
       } else {
-        toast.error('An error occured while creating your account', {
-          position: toast.POSITION.TOP_RIGHT,
+        toast.error('An error occured. Please try again', {
+          position: toast.POSITION.BOTTOM_RIGHT,
         });
       }
     },
-    onError: (error) => {
-      console.error(error);
-    },
+    onError: (error: TApiError) => apiErrorToast(error),
   });
 
   return { login: mutate, isLoading };

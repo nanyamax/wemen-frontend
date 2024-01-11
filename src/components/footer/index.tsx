@@ -1,5 +1,7 @@
+import dayjs from 'dayjs';
+
 const Footer = () => {
-  return <div></div>;
+  return <div className="footer">&copy; {dayjs().format('YYYY')} NanyaMax</div>;
 };
 
 export default Footer;

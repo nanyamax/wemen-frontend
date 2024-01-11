@@ -1,3 +1,5 @@
+import { AxiosError } from 'axios';
+
 export interface ILoginData {
   email: string;
   password: string;
@@ -12,3 +14,8 @@ export interface ISignupData {
   country: string;
   rememberMe: boolean;
 }
+
+export interface IApiErrorMessage {
+  message: string;
+}
+export type TApiError = AxiosError<IApiErrorMessage>;
