@@ -11,14 +11,10 @@ const useSingup = () => {
   const { mutate, isLoading } = useMutation('singup', SignupApi, {
     onSuccess: (response) => {
       if (response?.firstName) {
-        toast.success('Account created successfully', {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        toast.success('Account created successfully');
         navigate('/');
       } else {
-        toast.error('An error occured while creating your account', {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        toast.error('An error occured while creating your account');
       }
     },
     onError: (error: TApiError) => apiErrorToast(error),

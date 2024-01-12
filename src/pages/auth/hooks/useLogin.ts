@@ -14,16 +14,12 @@ const useLogin = () => {
   const { mutate, isLoading } = useMutation('login', LoginApi, {
     onSuccess: (response) => {
       if (response?.email && response?.firstName) {
-        toast.success('You have signed in successfully', {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        toast.success('You have signed in successfully');
         loginUser(response as any);
         setIsLoggedIn(response);
         navigate('/');
       } else {
-        toast.error('An error occured. Please try again', {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        toast.error('An error occured. Please try again');
       }
     },
     onError: (error: TApiError) => apiErrorToast(error),

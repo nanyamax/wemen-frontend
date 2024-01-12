@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -15,15 +15,18 @@ import {
   PersonAdd,
 } from 'react-bootstrap-icons';
 
-function Menu() {
+const Menu = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { isLoggedIn, setIsLoggedIn } = useStore();
   const navigate = useNavigate();
+
+  const toggle = () => setIsOpen((prev) => !prev);
+
   const onLogout = () => {
+    toggle();
     logOutUser();
     setIsLoggedIn(null);
-    toast.info('You have logged out successfully', {
-      position: toast.POSITION.BOTTOM_RIGHT,
-    });
+    toast.info('You have logged out successfully');
   };
 
   useEffect(() => {
@@ -40,27 +43,32 @@ function Menu() {
         sticky={'top'}
         className="bg-body-tertiary mb-3">
         <Container fluid>
-          <Navbar.Brand href="#">Wemen</Navbar.Brand>
-          <Navbar.Toggle aria-controls={`navbar-menu-expand`} />
+          <Navbar.Brand href="/">Wemen</Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls={`navbar-menu-expand`}
+            onClick={toggle}
+          />
           <Navbar.Offcanvas
+            show={isOpen}
+            restoreFocus={false}
             id={`navbar-menu-expand`}
             aria-labelledby={`navbar-menu-label-expand`}
             placement="end">
-            <Offcanvas.Header closeButton>
+            <Offcanvas.Header onClick={toggle} closeButton>
               <Offcanvas.Title id={`navbar-menu-label-expand`}>
                 Wemen
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Link to="/">
+                <Link to="/" onClick={toggle}>
                   <div className="menu-btns">
                     <HouseDoor /> &nbsp; Home
                   </div>
                 </Link>
                 {isLoggedIn && (
                   <>
-                    <Link to="/periodCalculator">
+                    <Link to="/periodCalculator" onClick={toggle}>
                       <div className="menu-btns">
                         <Calculator /> &nbsp; Period Calculator
                       </div>
@@ -76,12 +84,12 @@ function Menu() {
                 )}
                 {!isLoggedIn && (
                   <>
-                    <Link to="/login">
+                    <Link to="/login" onClick={toggle}>
                       <div className="menu-btns">
                         <DoorOpen /> &nbsp; Login
                       </div>
                     </Link>
-                    <Link to="/signup">
+                    <Link to="/signup" onClick={toggle}>
                       <div className="menu-btns">
                         <PersonAdd /> &nbsp; Signup
                       </div>
@@ -95,6 +103,6 @@ function Menu() {
       </Navbar>
     </>
   );
-}
+};
 
 export default Menu;

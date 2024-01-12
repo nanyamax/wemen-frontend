@@ -2,9 +2,7 @@ import { toast } from 'react-toastify';
 import { TApiError } from './types';
 
 export const apiErrorToast = (error: TApiError) => {
-  toast.error(error?.response?.data?.message ?? 'An error occured', {
-    position: toast.POSITION.BOTTOM_RIGHT,
-  });
+  toast.error(error?.response?.data?.message ?? 'An error occured');
 };
 
 export const dateSpliter = (date?: string) => {

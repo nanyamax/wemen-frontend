@@ -122,16 +122,11 @@ const SignupPage = () => {
             <option value="Uganda">Uganda</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formRememberme">
-          <Col>
-            <Form.Check label="Remember me" name="rememberMe" />
-          </Col>
-        </Form.Group>
 
         <Form.Group>
           <div style={{ textAlign: 'end' }}>
             <Button type="submit" disabled={!!isLoading}>
-              {isLoading ? 'Loading' : 'Sign in'}
+              {isLoading ? 'Loading' : 'Sign up'}
             </Button>
           </div>
         </Form.Group>

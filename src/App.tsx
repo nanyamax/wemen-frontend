@@ -27,7 +27,11 @@ const App: React.FC = () => {
           <Footer />
         </div>
       </Container>
-      <ToastContainer />
+      <ToastContainer
+        hideProgressBar={true}
+        position={'bottom-right'}
+        autoClose={1500}
+      />
     </BrowserRouter>
   );
 };
