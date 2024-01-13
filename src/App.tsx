@@ -16,14 +16,16 @@ const App: React.FC = () => {
       <Container fluid className="app-home">
         <div className="home-backgroud">
           <Menu />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />}></Route>
-            <Route path="/signup" element={<SignupPage />}></Route>
-            <Route
-              path="/periodCalculator"
-              element={<PeriodCalculators />}></Route>
-          </Routes>
+          <div className="app">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />}></Route>
+              <Route path="/signup" element={<SignupPage />}></Route>
+              <Route
+                path="/periodCalculator"
+                element={<PeriodCalculators />}></Route>
+            </Routes>
+          </div>
           <Footer />
         </div>
       </Container>

@@ -97,6 +97,9 @@ const Menu = () => {
                   </>
                 )}
               </Nav>
+              <div className="user-profile">
+                <div className="user-avatar"></div>
+              </div>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
