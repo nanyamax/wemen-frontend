@@ -134,7 +134,7 @@ a {
 .nav-brand {
   display: flex;
   justify-content: flex-end;
-  width: 85vw;
+  width: 80vw;
   font-weight: 600;
 }
 .user-profile {
