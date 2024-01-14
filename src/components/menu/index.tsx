@@ -44,6 +44,20 @@ const Menu = () => {
         className="bg-body-tertiary mb-3">
         <Container fluid>
           <Navbar.Brand href="/">Wemen</Navbar.Brand>
+
+          {isLoggedIn && (
+            <div className="nav-brand">
+              <div className="user-profile">
+                <div className="user-avatar">
+                  {isLoggedIn.firstName[0] ?? isLoggedIn.lastName[0]}
+                </div>
+                <div className="user-name">
+                  {isLoggedIn.firstName ?? isLoggedIn.lastName}
+                </div>
+              </div>{' '}
+            </div>
+          )}
+
           <Navbar.Toggle
             aria-controls={`navbar-menu-expand`}
             onClick={toggle}
@@ -97,9 +111,6 @@ const Menu = () => {
                   </>
                 )}
               </Nav>
-              <div className="user-profile">
-                <div className="user-avatar"></div>
-              </div>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

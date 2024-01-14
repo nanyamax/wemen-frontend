@@ -1,8 +1,9 @@
 import React from 'react';
+import { IUserProfile } from '../common/types';
 
 const Context = React.createContext<{
-  isLoggedIn: string | null;
-  setIsLoggedIn: React.Dispatch<React.SetStateAction<string | null>>;
+  isLoggedIn: IUserProfile | null;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<IUserProfile | null>>;
 }>({
   isLoggedIn: null,
   setIsLoggedIn: () => {},

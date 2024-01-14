@@ -1,12 +1,12 @@
 import { STORE_KEY } from '../common/constants';
-import { ISignupData } from '../common/types';
+import { IUserProfile } from '../common/types';
 
-export const isUserLoggedIn = () => {
+export const isUserLoggedIn = (): IUserProfile | null => {
   const user = localStorage.getItem(STORE_KEY);
-  return user;
+  return user ? JSON.parse(user) : null;
 };
 
-export const loginUser = (data: ISignupData) => {
+export const loginUser = (data: IUserProfile) => {
   localStorage.setItem(STORE_KEY, JSON.stringify(data));
 };
 

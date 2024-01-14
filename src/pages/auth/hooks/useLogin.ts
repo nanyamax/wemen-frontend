@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import useStore from '../../../store/useStore';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../../store/useCheckUser';
-import { TApiError } from '../../../common/types';
+import { IUserProfile, TApiError } from '../../../common/types';
 import { apiErrorToast } from '../../../common/utils';
 
 const useLogin = () => {
@@ -15,7 +15,7 @@ const useLogin = () => {
     onSuccess: (response) => {
       if (response?.email && response?.firstName) {
         toast.success('You have signed in successfully');
-        loginUser(response as any);
+        loginUser(response as IUserProfile);
         setIsLoggedIn(response);
         navigate('/');
       } else {

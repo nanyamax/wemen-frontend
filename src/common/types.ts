@@ -15,6 +15,14 @@ export interface ISignupData {
   rememberMe: boolean;
 }
 
+export interface IUserProfile {
+  firstName: string;
+  lastName: String;
+  email: string;
+  country: string;
+  maritalStatus: string;
+}
+
 export interface IApiErrorMessage {
   message: string;
 }

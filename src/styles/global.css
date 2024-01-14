@@ -131,17 +131,36 @@ a {
   height: 2em;
 }
 
+.nav-brand {
+  display: flex;
+  justify-content: flex-end;
+  width: 85vw;
+  font-weight: 600;
+}
+.user-profile {
+  display: flex;
+}
+.user-avatar {
+  border-radius: 100%;
+  height: 2rem;
+  width: 2rem;
+  background-color: rgb(224, 34, 161);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-name {
+  margin-left: 0.2rem;
+}
+
 /* for mobile screen  */
 @media screen and (max-width: 690px) {
   .carousel-div div {
     font-size: 1.8rem;
   }
-}
-.user-profile {
-  background-color: #444;
-}
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+
+  .nav-brand {
+    width: 50vw;
+  }
 }
